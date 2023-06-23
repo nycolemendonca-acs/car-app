@@ -37,6 +37,7 @@ public class DriverAPI {
         return driverRepository.save(driver);
     }
 
+    // Atualização de todo o objeto
     @PutMapping("/drivers/{id}")
     public Driver fullUpdateDriver(@PathVariable("id") Long id, @RequestBody Driver driver) {
         Driver foundDriver = findDriver(id);
@@ -45,6 +46,7 @@ public class DriverAPI {
         return driverRepository.save(foundDriver);
     }
 
+    // Atualização de um trecho do objeto
     @PatchMapping("/drivers/{id}")
     public Driver incrementalUpdateDriver(@PathVariable("id") Long id, @RequestBody Driver driver) {
         Driver foundDriver = findDriver(id);

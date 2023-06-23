@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>app.car</groupId>
-	<artifactId>app-car-api</artifactId>
+	<artifactId>drivers-api</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>app-car-api</name>
-	<description>App Car API</description>
+	<name>drivers-api</name>
+	<description>App Car - Drivers API</description>
 	<properties>
 		<java.version>1.8</java.version>
 	</properties>
