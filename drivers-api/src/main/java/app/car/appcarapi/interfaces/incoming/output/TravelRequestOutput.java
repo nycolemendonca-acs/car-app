@@ -1,23 +1,17 @@
-package app.car.appcarapi.domain;
+package app.car.appcarapi.interfaces.incoming.output;
 
+import app.car.appcarapi.domain.Passenger;
+import app.car.appcarapi.domain.TravelRequestStatus;
 import lombok.Data;
 
-import javax.persistence.*;
 import java.util.Date;
 
 @Data
-@Entity
-public class TravelRequest {
-    @Id
-    @GeneratedValue
+public class TravelRequestOutput {
     Long id;
-
-    @ManyToOne
     Passenger passenger;
     String origin;
     String destination;
-
-    @Enumerated(EnumType.STRING)
     TravelRequestStatus status;
     Date creationDate;
 }

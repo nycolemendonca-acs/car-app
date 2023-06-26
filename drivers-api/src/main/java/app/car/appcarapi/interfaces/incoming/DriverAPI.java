@@ -1,4 +1,4 @@
-package app.car.appcarapi.interfaces;
+package app.car.appcarapi.interfaces.incoming;
 
 import app.car.appcarapi.domain.Driver;
 import app.car.appcarapi.domain.DriverRepository;
