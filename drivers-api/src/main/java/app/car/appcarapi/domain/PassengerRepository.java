@@ -1,2 +1,5 @@
-package app.car.appcarapi.domain;public interface PassengerRepository {
-}
+package app.car.appcarapi.domain;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface PassengerRepository extends JpaRepository<Passenger, Long> {}
