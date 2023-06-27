@@ -11,7 +11,6 @@ import java.util.stream.Collectors;
 
 @Service
 public class GMapsService {
-    @Value("${app.car.domain.googlemaps.apiKey}")
     private String appKey;
 
     private static final String GMAPS_TEMPLATE =
