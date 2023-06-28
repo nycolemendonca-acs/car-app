@@ -1,5 +1,6 @@
 package app.car.appcarapi.interfaces.incoming;
 
+import static io.restassured.RestAssured.basic;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.*;
 
@@ -17,7 +18,9 @@ public class PassengerAPITestIT {
 
     @BeforeEach
     public void setup() {
-        RestAssured.port = port;
+        RestAssured.baseURI = "https://localhost:" + port;
+        RestAssured.useRelaxedHTTPSValidation();
+        RestAssured.authentication = basic("admin", "password");
     }
 
     @Test

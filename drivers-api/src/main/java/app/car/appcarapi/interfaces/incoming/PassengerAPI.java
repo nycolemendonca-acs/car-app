@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
+import javax.annotation.security.RolesAllowed;
 import java.util.List;
 import java.util.Optional;
 
@@ -32,7 +33,9 @@ public class PassengerAPI {
     }
 
     @PostMapping
+    @RolesAllowed("ROLE_ADMIN")
     public Passenger createPassenger(@RequestBody Passenger passenger) {
+
         return passengerRepository.save(passenger);
     }
 
