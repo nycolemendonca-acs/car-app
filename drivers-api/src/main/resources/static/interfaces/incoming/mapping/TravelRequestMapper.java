@@ -15,7 +15,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 import org.springframework.web.server.ResponseStatusException;
 
-import java.sql.ClientInfoStatus;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -25,6 +24,7 @@ public class TravelRequestMapper {
     private PassengerRepository passengerRepository;
 
     public TravelRequest map(TravelRequestInput input) {
+        // Localização dos dados do passageiro a partir do atributo passengerId
         Passenger passenger = passengerRepository
                 .findById(input.getPassengerId())
                         .orElseThrow(() -> new ResponseStatusException((HttpStatus.NOT_FOUND)));

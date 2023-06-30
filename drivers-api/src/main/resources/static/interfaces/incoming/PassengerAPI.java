@@ -35,7 +35,7 @@ public class PassengerAPI {
     @PostMapping
     @RolesAllowed("ROLE_ADMIN")
     public Passenger createPassenger(@RequestBody Passenger passenger) {
-
+m
         return passengerRepository.save(passenger);
     }
 

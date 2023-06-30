@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -25,7 +26,7 @@ public class TravelRequestAPI {
     TravelRequestMapper mapper;
 
     @PostMapping
-    public EntityModel<TravelRequestOutput> makeTravelRequest (@RequestBody TravelRequestInput travelRequestInput) {
+    public EntityModel<TravelRequestOutput> makeTravelRequest(@RequestBody @Validated TravelRequestInput travelRequestInput) {
         TravelRequest request = travelService.saveTravelRequest(mapper.map(travelRequestInput));
         TravelRequestOutput output = mapper.map(request);
         return mapper.buildOutputModel(request, output);
