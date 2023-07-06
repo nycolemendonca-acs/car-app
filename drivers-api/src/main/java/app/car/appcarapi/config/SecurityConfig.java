@@ -1,6 +1,5 @@
 package app.car.appcarapi.config;
 
-import app.car.appcarapi.domain.Passenger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -12,10 +11,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 
-import javax.annotation.security.RolesAllowed;
 import javax.sql.DataSource;
 
 @Configuration
@@ -32,6 +28,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 
         http.authorizeRequests()
+                .antMatchers("/swagger-ui.html/**", "/swagger-ui/**", "/v3/api-docs/**")
+                .permitAll()
                 .anyRequest()
                 .authenticated()
                 .and()
@@ -71,7 +69,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .dataSource(dataSource)
                 .passwordEncoder(passwordEncoder())
                 .usersByUsernameQuery(queryUsers)
-                .authoritiesByUsernameQuery(queryRoles)
+                .authoritiesByUsernameQuery(queryRoles);
     }
 
     @Bean

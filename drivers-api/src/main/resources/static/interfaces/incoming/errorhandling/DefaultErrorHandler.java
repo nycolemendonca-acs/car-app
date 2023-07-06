@@ -13,6 +13,10 @@ import java.util.stream.Collectors;
 public class DefaultErrorHandler {
     @ExceptionHandler(MethodArgumentNotValidException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ApiResponses(
+            @ApiResponse(responseCode = "400", content = @Content(mediaType = "applications/json",
+            schema = @Schema(implementation = ErrorResponse.class)))
+    )
     public ErrorResponse handleMethodArgumentNotValid(MethodArgumentNotValidException ex) {
         List<ErrorData> messages = ex
                 .getBindingResult()
